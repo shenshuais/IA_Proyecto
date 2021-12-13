@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
  )
 
-Opcion=st.sidebar.selectbox("Seleccionar el algoritmo",("--","Reglas de asociación","Metricas de distancia",
+Opcion=st.sidebar.selectbox("Opciones",("Inicio","Reglas de asociación","Metricas de distancia",
 "Clustering", "Regresión lógistica", "Árbol de decisión"))
 if Opcion == "Reglas de asociación":
     r.show()
