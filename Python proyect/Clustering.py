@@ -18,8 +18,9 @@ def show():
     file=st.file_uploader("Elege un archivo de entrada")
     if file != None:
         algortimo = st.radio("Seleccione un algortimo de clustering",
-            ('Jerarquico', 'Particional'))
+            ('Jerárquico', 'Particional'))
         Hipoteca = pd.read_csv(file)
+        st.subheader("El contenido del archivo")
         st.dataframe(Hipoteca)
         st.subheader("Conteo")
         st.text(Hipoteca.groupby('comprar').size())
@@ -56,8 +57,8 @@ def show():
             st.dataframe(MEstandarizada)
 
             #Aplicación del agoritmo
-            if algortimo == 'Jerarquico':
-                st.subheader("Jerarquico")
+            if algortimo == 'Jerárquico':
+                st.subheader("Jerárquico")
                 y = st.slider('Linea de corte', 0.0, 10.0,step=0.1)
                 figure = plt.figure(figsize=(10, 7))
                 plt.title("Casos de "+ file.name)
@@ -114,7 +115,7 @@ def show():
                 st.text("La cantidad de clusters adecuado es: " + str(x))
 
                 #Aplicando el algortimo
-                MParticional = KMeans(n_clusters=4, random_state=0).fit(MEstandarizada)
+                MParticional = KMeans(n_clusters=x, random_state=0).fit(MEstandarizada)
                 MParticional.predict(MEstandarizada)
                 st.write("Se crea las etiquetas")
                 st.text(MParticional.labels_)

@@ -14,11 +14,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
  )
 
-Opcion=st.sidebar.selectbox("Opciones",("Inicio","Reglas de asociación","Metricas de distancia",
+Opcion=st.sidebar.selectbox("Opciones",("Inicio","Reglas de asociación","Métricas de distancia",
 "Clustering", "Regresión lógistica", "Árbol de decisión"))
 if Opcion == "Reglas de asociación":
     r.show()
-elif Opcion == "Metricas de distancia":
+elif Opcion == "Métricas de distancia":
     m.show()
 elif Opcion == "Clustering":
     c.show()

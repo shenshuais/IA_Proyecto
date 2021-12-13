@@ -14,12 +14,13 @@ def show():
     file=st.file_uploader("Elege un archivo de entrada")
     if file != None:
         Hipoteca = pd.read_csv(file)
+        st.subheader("El contenido del archivo")
         st.dataframe(Hipoteca)
         st.subheader("Conteo")
         st.text(Hipoteca.groupby('comprar').size())
 
         st.subheader("Correlación de los datos")
-        #st.pyplot(sns.pairplot(Hipoteca, hue='comprar'))
+        st.pyplot(sns.pairplot(Hipoteca, hue='comprar'))
 
         st.subheader("Matriz de correlación")
         CorrHipoteca = Hipoteca.corr(method='pearson')

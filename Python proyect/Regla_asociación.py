@@ -10,6 +10,7 @@ def show():
     file=st.file_uploader("Elege un archivo de entrada")
     if file != None:
         DatosMovies = pd.read_csv(file, header=None)
+        st.subheader("El contenido del archivo")
         st.dataframe(DatosMovies)
         size = DatosMovies.shape
         st.subheader("El tamaño del archivo es")

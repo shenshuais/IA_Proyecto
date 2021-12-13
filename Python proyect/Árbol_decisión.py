@@ -22,6 +22,7 @@ def show():
     if file != None:
         algortimo = st.radio("Seleccione un algortimo de árbol de decisión",
             ('Clasificación', 'Pronóstico'))
+        st.subheader("El contenido del archivo")
         archivo = pd.read_csv(file)
         st.dataframe(archivo)
         st.subheader("Descripción de los datos")
@@ -75,7 +76,7 @@ def show():
                 Valores = pd.DataFrame(Y_validation, Y_Pronostico)
                 st.dataframe(Valores)
 
-                st.text("Parametros del modelo")
+                st.subheader("Parametros del modelo")
                 st.text('Criterio: '+str(PronosticoAD.criterion))
                 st.text('Importancia variables: '+str(PronosticoAD.feature_importances_))
                 st.write("MAE: %.4f" % mean_absolute_error(Y_validation, Y_Pronostico))
@@ -102,7 +103,7 @@ def show():
                 st.text(Reporte)
 
                 with st.container():
-                    st.subheader("Nuevas clasificaciones")
+                    st.subheader("Nuevos pronósticos")
                     paciente = []
                     d={}
                     for i in variablespre:
@@ -201,7 +202,7 @@ def show():
                             d[variablespre[i]]=float(paciente[i])
                         
                         pacienteID1 = pd.DataFrame(d,index=[0])
-                        st.text("El resultado de pronónostico es: "+str(ClasificacionAD.predict(pacienteID1)))
+                        st.text("El resultado de la clasificación es: "+str(ClasificacionAD.predict(pacienteID1)))
                 
                 
 
