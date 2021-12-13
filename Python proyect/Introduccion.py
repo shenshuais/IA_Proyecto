@@ -1,4 +1,3 @@
-from os import write
 import streamlit as st
 
 def show():
